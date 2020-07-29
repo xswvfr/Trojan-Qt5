@@ -1,0 +1,61 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file alias="actions/application-exit.png">icons/Breeze/actions/application-exit.png</file>
+        <file alias="actions/configure.png">icons/Breeze/actions/configure.png</file>
+        <file alias="actions/document-open.png">icons/Breeze/actions/document-open.png</file>
+        <file alias="actions/document-revert.png">icons/Breeze/actions/document-revert.png</file>
+        <file alias="actions/document-edit.png">icons/Breeze/actions/document-edit.png</file>
+        <file alias="actions/document-import.png">icons/Breeze/actions/document-import.png</file>
+        <file alias="actions/document-export.png">icons/Breeze/actions/document-export.png</file>
+        <file alias="actions/document-save.png">icons/Breeze/actions/document-save.png</file>
+        <file alias="actions/document-share.png">icons/Breeze/actions/document-share.png</file>
+        <file alias="actions/edit-guides.png">icons/Breeze/actions/edit-guides.png</file>
+        <file alias="actions/edit-image-face-recognize.png">icons/Breeze/actions/edit-image-face-recognize.png</file>
+        <file alias="actions/flag.png">icons/Breeze/actions/flag.png</file>
+        <file alias="actions/go-down.png">icons/Breeze/actions/go-down.png</file>
+        <file alias="actions/go-up.png">icons/Breeze/actions/go-up.png</file>
+        <file alias="actions/help-about.png">icons/Breeze/actions/help-about.png</file>
+        <file alias="actions/list-add.png">icons/Breeze/actions/list-add.png</file>
+        <file alias="actions/list-remove.png">icons/Breeze/actions/list-remove.png</file>
+        <file alias="actions/network-connect.png">icons/Breeze/actions/network-connect.png</file>
+        <file alias="actions/network-disconnect.png">icons/Breeze/actions/network-disconnect.png</file>
+        <file alias="actions/text-field.png">icons/Breeze/actions/text-field.png</file>
+        <file alias="actions/tools-report-bug.png">icons/Breeze/actions/tools-report-bug.png</file>
+        <file alias="actions/view-list-text.png">icons/Breeze/actions/view-list-text.png</file>
+        <file alias="index.theme">icons/Breeze/index.theme</file>
+        <file>icons/trojan-qt5.png</file>
+        <file>icons/trojan-qt5-2.png</file>
+        <file>icons/trojan_off.png</file>
+        <file>icons/trojan_on.png</file>
+        <file>icons/trojan-qt5_off.png</file>
+        <file>icons/trojan-qt5_direct.png</file>
+        <file>icons/trojan-qt5_pac.png</file>
+        <file>icons/trojan-qt5_global.png</file>
+        <file>icons/trojan-qt5_advance.png</file>
+        <file>icons/ssr_off.png</file>
+        <file>icons/ssr_on.png</file>
+        <file>icons/donation.png</file>
+        <file>icons/trojan-qt5_new.png</file>
+        <file>icons/snell_off.png</file>
+        <file>icons/snell_on.png</file>
+        <file>icons/ss_on.png</file>
+        <file>icons/ss_off.png</file>
+        <file>icons/vmess_on.png</file>
+        <file>icons/vmess_off.png</file>
+        <file>icons/mielink.jpg</file>
+        <file>icons/westworldss.png</file>
+        <file>icons/download.svg</file>
+        <file>icons/upload.svg</file>
+        <file>icons/qingwan.jpg</file>
+        <file>icons/youyun.jpg</file>
+        <file>icons/network-connect.svg</file>
+        <file>icons/network-disconnect.svg</file>
+        <file>icons/network-test.svg</file>
+        <file>icons/profile-delete.svg</file>
+        <file>icons/profile-edit.svg</file>
+        <file>icons/profile-share.svg</file>
+        <file>icons/profile-up.svg</file>
+        <file>icons/profile-down.svg</file>
+        <file>icons/hxlm.png</file>
+    </qresource>
+</RCC>

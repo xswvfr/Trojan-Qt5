@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pac/user-rule.txt</file>
+        <file>pac/gfwlist.txt</file>
+        <file>pac/trojan_lanip.pac</file>
+        <file>pac/trojan_cnip.pac</file>
+        <file>pac/trojan_white_r.pac</file>
+        <file>pac/trojan_white.pac</file>
+        <file>pac/trojan_white_advanced.pac</file>
+        <file>pac/trojan_gfw.pac</file>
+    </qresource>
+</RCC>

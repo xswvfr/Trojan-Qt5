@@ -1,0 +1,137 @@
+language: go
+
+go:
+  - 1.14.x
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode11
+      env: 
+        - BADGE=osx
+        - _TROJAN_QT5_BUILD_INFO_="Trojan-Qt5 build from Travis-CI"
+    - os: linux
+      dist: xenial
+      sudo: required
+      env: 
+        - BADGE=linux
+        - ROLE=appimage
+        - QT_CI_PACKAGES=qt.qt5.5132.gcc_64,qt.qt5.5132.qtwebengine PATH=${TRAVIS_BUILD_DIR}/recipes:${TRAVIS_BUILD_DIR}/bin:${PATH}
+        - _TROJAN_QT5_BUILD_INFO_="Trojan-Qt5(AppImage) build from Travis-CI"
+      addons:
+        apt:
+          packages:
+            - libxkbcommon-x11-0
+            - libgl1-mesa-dev
+      services:
+        - xvfb
+    - os: linux
+      dist: bionic
+      sudo: required
+      env:
+        - BADGE=linux
+        - ROLE=deb
+        - _TROJAN_QT5_BUILD_INFO_="Trojan-Qt5(Deb) build from Travis-CI"
+
+before_install:
+  - if [ "$BADGE" = "linux" ] && [ "$ROLE" = "appimage" ]; then
+      sudo add-apt-repository ppa:ymshenyu/grpc -y;
+      sudo add-apt-repository ppa:ymshenyu/yaml-cpp -y;
+      sudo add-apt-repository ppa:savoury1/backports -y;
+      sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y;
+      sudo add-apt-repository ppa:carsten-uppenbrink-net/openssl -y;
+      sudo apt-get update;
+    fi
+  - if [ "$BADGE" = "linux" ] && [ "$ROLE" = "deb" ]; then
+      sudo add-apt-repository ppa:dominik-stadler/ppa -y;
+      sudo add-apt-repository ppa:hnakamur/yaml-cpp -y;
+      sudo add-apt-repository ppa:panfaust/qt3 -y;
+      sudo add-apt-repository ppa:ymshenyu/grpc -y;
+      sudo add-apt-repository ppa:savoury1/backports -y;
+      sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y;
+      sudo apt-get update;
+    fi
+  - if [ "$BADGE" = "osx" ]; then
+      brew update;
+    fi
+
+install:
+  - if [ "$BADGE" = "linux" ] && [ "$ROLE" = "appimage" ]; then    
+      sudo apt-get install gcc-7 g++-7 libqrencode-dev libzbar-dev libgl-dev git build-essential python-dev autoconf autotools-dev libicu-dev libbz2-dev checkinstall zlib1g zlib1g-dev python3 pkg-config libprotobuf-dev libgrpc++-dev protobuf-compiler protobuf-c-compiler protobuf-compiler-grpc libsodium-dev libuv1-dev p7zip-full libssl-dev libyaml-cpp-dev -y;
+      sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7;
+      git clone https://github.com/benlau/qtci.git;
+      source qtci/path.env;
+      install-qt 5.13.2 >/dev/null 2>&1;
+      source qt-5.13.2.env;
+    fi
+  - if [ "$BADGE" = "linux" ] && [ "$ROLE" = "deb" ]; then
+      sudo apt-get install debhelper gcc-7 g++-7 libqrencode-dev libzbar-dev libgl-dev git build-essential python-dev autoconf autotools-dev libicu-dev libbz2-dev checkinstall zlib1g zlib1g-dev python3 pkg-config libprotobuf-dev libgrpc++-dev protobuf-compiler protobuf-c-compiler protobuf-compiler-grpc libsodium-dev libuv1-dev p7zip-full libssl-dev libyaml-cpp-dev qtbase5-dev qttools5-dev qt5-default -y;
+    fi
+  - if [ "$BADGE" = "osx" ]; then    
+      brew install zbar qrencode openssl@1.1 zlib pcre python3 libsodium libuv grpc pkg-config yaml-cpp;
+      brew reinstall https://raw.githubusercontent.com/Homebrew/homebrew-core/8846805afc0cb8e5d114d5e222af1de3b35289df/Formula/qt.rb --verbose;
+      rm -rf /usr/local/opt/protobuf/lib/libprotobuf-lite.*;
+      cp -r framework/Sparkle.framework /usr/local/Cellar/qt/5.14.2/lib;
+      cp -r framework/LetsMove.framework /usr/local/Cellar/qt/5.14.2/lib;
+    fi
+
+before_script:
+  - if [ "$BADGE" = "osx" ];   then    export PATH="/usr/local/Cellar/qt/5.14.2/bin:$PATH"; fi
+
+script:
+  - git submodule update --init --recursive
+  - cd 3rd/trojan-qt5-core
+  - go env -w GOPROXY=direct
+  - go env -w GOSUMDB=off
+  - go build --tags "api client router" -buildmode=c-archive
+  - cd ../..
+  - if [ "$BADGE" = "osx" ]; then
+      mkdir build && cd ./build;
+      qmake ../;
+      make -j$(nproc);
+      xattr -c -r trojan-qt5.app;
+      xattr -d com.apple.quarantine trojan-qt5.app;
+      macdeployqt trojan-qt5.app -dmg;
+      mv trojan-qt5.dmg Trojan-Qt5-macOS.dmg;
+      brew link --overwrite python;
+      python3 ../scripts/checksum.py Trojan-Qt5-macOS.dmg Trojan-Qt5-macOS.hash;
+    fi
+  - if [ "$BADGE" = "linux" ] && [ "$ROLE" = "appimage" ]; then
+      mkdir build && cd ./build;
+      wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage";
+      chmod a+x linuxdeployqt-continuous-x86_64.AppImage;
+      qmake CONFIG+=release .. PREFIX=/usr;
+      make -j$(nproc);
+      make INSTALL_ROOT=appdir -j$(nproc) install ; find appdir/;
+      export LD_LIBRARY_PATH=/usr/loal/zlib/lib:/usr/local/pcre/lib:/usr/local/zbar/lib/:/usr/local/qrencode/lib/:/usr/local/boost/lib/:/usr/local/openssl/lib/:$LD_LIBRARY_PATH;
+      ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage;
+      mv Trojan-Qt5*.AppImage Trojan-Qt5-Linux.AppImage;
+      7z a Trojan-Qt5-Linux.7z Trojan-Qt5-Linux.AppImage;
+      python3 ../scripts/checksum.py Trojan-Qt5-Linux.7z Trojan-Qt5-Linux.hash;
+    fi
+  - if [ "$BADGE" = "linux" ] && [ "$ROLE" = "deb" ]; then
+      sudo dpkg-buildpackage -us -uc -i -b;
+      mv ../trojan-qt5_*.deb Trojan-Qt5-Deb.deb;
+      python3 ./scripts/checksum.py Trojan-Qt5-Deb.deb Trojan-Qt5-Deb.hash;
+      mkdir build && cd build;
+      mv ../Trojan-Qt5-Deb.deb . && mv ../Trojan-Qt5-Deb.hash .;
+    fi
+
+defore_deploy:
+  - cd ..
+
+deploy:
+  provider: release
+  file: 
+    - build/Trojan-Qt5-macOS.dmg
+    - build/Trojan-Qt5-macOS.hash
+    - build/Trojan-Qt5-Linux.7z
+    - build/Trojan-Qt5-Linux.hash
+    - build/Trojan-Qt5-Deb.deb
+    - build/Trojan-Qt5-Deb.hash
+  api_key: $GIT_REPO_TOKEN
+  skip_cleanup: true
+  overwrite: true
+  on:
+    branch: master
+    tags: true

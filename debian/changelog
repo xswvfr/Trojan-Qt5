@@ -1,0 +1,72 @@
+trojan-qt5 (1.4.0-1) unstable; urgency=medium
+
+    * Use dll instead of route command
+    * Fix go-tun2socks flash window console
+    * Update V2Ray-Core to v4.26.0
+    * Update Trojan-Go to v0.8.0
+    * More Detail Graph Stats
+    * Fix High Dpi Icon look blurry
+
+ -- TheWanderingCoel <thewanderingcoel@protonmail.com>  Mon, 13 July 2020 16:34:00 +8000
+
+trojan-qt5 (1.3.1-1) unstable; urgency=medium
+
+    * Fix bypass China Mainland
+
+ -- TheWanderingCoel <thewanderingcoel@protonmail.com>  Wed, 1 July 2020 10:53:00 +8000
+
+trojan-qt5 (1.3.0-1) unstable; urgency=medium
+
+    * Fix dark mode
+    * Update V2Ray-Core Version
+    * Refactor config.ini
+    * Add seed and AEAD Support for V2Ray
+    * Add bypass bittorrent, CN Mainland and inbound sniffing
+
+ -- TheWanderingCoel <thewanderingcoel@protonmail.com>  Wed, 1 July 2020 10:53:00 +8000
+
+trojan-qt5 (1.2.0-1) unstable; urgency=medium
+
+    * Dark mode support
+    * Socks5/Http/Snell Proxy support
+    * Add Real Latency Test support
+
+ -- TheWanderingCoel <thewanderingcoel@protonmail.com>  Thu, 18 June 2020 15:06:14 +0800
+
+
+trojan-qt5 (1.1.6-1) unstable; urgency=medium
+
+    * Fix Router issue
+    * Add some translation
+
+ -- TheWanderingCoel <thewanderingcoel@protonmail.com>  Thu, 4 June 2020 11:02:12 +0800
+
+trojan-qt5 (1.1.5-1) unstable; urgency=medium
+
+    * Update v2ray-core version
+    * Fix trojan-go stats
+    * Fix UI auto resize issue
+    * allow custom graph color
+
+ -- TheWanderingCoel <thewanderingcoel@protonmail.com>  Wed, 3 June 2020 11:00:29 +0800
+
+trojan-qt5 (1.1.4-1) unstable; urgency=medium
+
+    * Fix V2ray Will be detected
+    * Fix subscribe time issue
+    * Fix UI auto resize issue
+
+ -- TheWanderingCoel <thewanderingcoel@protonmail.com>  Sun, 31 May 2020 10:04:26 +0800
+
+trojan-qt5 (1.1.2-1) unstable; urgency=medium
+
+    * Fix V2ray TLS issue
+
+ -- TheWanderingCoel <thewanderingcoel@protonmail.com>  Thu, 21 May 2020 19:23:49 +0800
+
+trojan-qt5 (1.1.1-1) unstable; urgency=medium
+
+    * Initial Release
+
+ -- TheWanderingCoel <thewanderingcoel@protonmail.com>  Wed, 20 May 2020 07:37:59 +0800
+ 

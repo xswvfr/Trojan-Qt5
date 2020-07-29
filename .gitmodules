@@ -1,0 +1,21 @@
+[submodule "src/plog"]
+	path = src/plog
+	url = https://github.com/Trojan-Qt5/plog.git
+[submodule "3rd/yaml-cpp"]
+	path = 3rd/yaml-cpp
+	url = https://github.com/jbeder/yaml-cpp.git
+[submodule "src/shadowsocksr-uvw"]
+	path = src/shadowsocksr-uvw
+	url = https://github.com/Trojan-Qt5/shadowsocksr-uvw.git
+[submodule "3rd/qhttpserver"]
+	path = 3rd/qhttpserver
+	url = https://github.com/Trojan-Qt5/qhttpserver.git
+[submodule "resources/pac"]
+	path = resources/pac
+	url = https://github.com/Trojan-Qt5/Trojan-Qt5-PAC.git
+[submodule "3rd/trojan-qt5-core"]
+	path = 3rd/trojan-qt5-core
+	url = https://github.com/Trojan-Qt5/Trojan-Qt5-Core.git
+[submodule "src/qntp"]
+	path = src/qntp
+	url = https://github.com/retgone/qntp.git

@@ -1,0 +1,149 @@
+QMainWindow
+{
+    background: rgb(22, 24, 26);
+}
+
+QDialog QLabel
+{
+    font-weight: normal;
+}
+
+QDialog QTextEdit
+{
+    font-weight: normal;
+}
+
+QDialog QCheckBox
+{
+    font-weight: normal;
+}
+
+QDialog QPushButton
+{
+    font-weight: normal;
+}
+
+QDialog QDateEdit
+{
+    font-weight: normal;
+}
+
+QDialog QLineEdit
+{
+    font-weight: normal;
+}
+
+QDialog QTabBar::tab
+{
+    font-weight: normal;
+}
+
+QDialog QPlainTextEdit
+{
+    font-weight: normal;
+}
+
+QTableView
+{
+    background-color: rgb(37,40,45);
+    border: 1px solid rgb(70,73,80);
+}
+
+QTableView::item {
+    background-color: rgb(37,40,45);
+}
+
+QTableView::item:selected {
+    background: rgb(22,24,26);
+    color: rgb(255,255,255);
+}
+
+QHeaderView {
+    background-color: rgb(37,40,45);
+}
+
+QHeaderView::section
+{
+    background-color: rgb(37,40,45);
+    border: 1px solid rgb(37,40,45);
+    color: rgb(255,255,255);
+    text-align: left;
+}
+
+QMenuBar
+{
+    background: rgb(22, 24, 26);
+    border: 1px solid rgba(0,0,0,15%);
+    font-weight: bold;
+}
+
+QMenuBar::item
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(255,255,255);
+}
+
+QMenuBar::item::pressed
+{
+    background : rgb(64,155,255);
+    color: rgb(255,255,255);
+}
+
+QMenu {
+    background-color: rgb(37,40,45);
+    color: rgb(255,255,255);
+}
+
+QMenu::item:selected { 
+    background : rgba(64,155,255,76%);
+    color: rgb(255,255,255);
+}
+
+QStatusBar {
+    background: rgb(22,24,26);
+}
+
+QStatusBar QLabel {
+    font-weight: normal;
+    color: rgb(255,255,255);
+}
+
+QStatusBar QPushButton {
+    font-weight: normal;
+    color: rgb(255,255,255);
+}
+
+QStatusBar::item { 
+    border-width: 0;
+}
+
+#statusFrame {
+    color: rgb(255,255,255);
+}
+
+QToolBar {
+    background : rgb(22,24,26);
+    border: 1px solid rgb(70,73,80);
+    spacing: 35px;
+}
+
+#toolBar QToolButton {
+    background : rgb(22,24,26);
+    border: none;
+    spacing: 35px;
+    color: rgb(255,255,255);
+}
+
+#filterLineEdit {
+    background: rgb(37,40,45);
+    border: 1px solid rgb(70,73,80);
+    padding-left: 10px;
+}
+
+QComboBox {
+    font-weight: normal;
+    color: rgb(255,255,255);
+}

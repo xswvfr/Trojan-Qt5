@@ -1,0 +1,13 @@
+.DS_Store
+*.user
+*.autosave
+*.cmake
+build
+tun2socks.h
+tun2socks.a
+Trojan-Qt5-Core.a
+Trojan-Qt5-Core.h
+*.pb.h
+*.pb.cc
+src/proxyapi/*.pb.h
+src/proxyapi/*.pb.cc
