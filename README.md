@@ -1,8 +1,5 @@
 <h1 align="center">
-  <img src="https://github.com/Trojan-Qt5/Trojan-Qt5/blob/master/resources/icons/trojan-qt5_new.png?raw=true" alt="Trojan-Qt5" width="200">
-  <br>
   Trojan-Qt5
-  <br>
 </h1>
 
 A cross-platform Socks5/Http/SS/SSR/Vmess/Trojan(go)/Snell GUI client
@@ -82,28 +79,4 @@ This project is based on:
 - [shadowsocksRR-windows](https://github.com/shadowsocksrr/shadowsocksr-csharp)
 - [Qv2ray](https://github.com/qv2ray/qv2ray)
 
-Trojan-Qt5's icon is owned by [mielink] and [erdongchan], any unanthorized usage will be blamed.
-
-## Sponsors
-
-WARNING, BETTER DO SOME RESEARCH BEFORE PURCHASE IT. I TAKE ABSOLUTELY ZERO RESPONSIBILITY.
-
-### 1.MieLink (IEPL, IPLC, CN2 GIA Fastest)
-![MieLink](https://i.imgur.com/XmvuOOi.png)
-Use this [link](http://rakuten-co-jp.club/register?aff=COELWU) to get 10RMB initial balance!
-
-### 2.WestWorldSS (Unlimited Devices, Unlimited Traffic)
-![WestWordSS](https://i.imgur.com/aZx1VnP.png)  
-Use this [link](https://xbsj5673.xyz) to register now!
-
-### 3.Qing Wan International Airline (Small Airport, better reliability)
-![QinWan](https://i.imgur.com/67tgeAj.jpg) 
-Use this [link](https://www.qwyun.vip/auth/register?code=COELWU) to register now! USE aff to get discount!
-
-### 4.Mars Alliance (300+ Servers)
-![MarsAlliance](https://imgur.com/ExEmZ07.jpg)
-Use this [link](https://www.hxlm.org/#/register?code=a7cWmBDX) to register now!
-
-### 5.You Yun 666 (Full Transit Airport)
-![YouYun](https://i.imgur.com/U4ue42O.jpg)  
-Use this [link](https://youyun666.com/auth/register?code=FDqS) to register now!
+Trojan-Qt5's icon is owned by `mielink` and `erdongchan`, any unanthorized usage will be blamed.
